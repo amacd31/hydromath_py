@@ -1,0 +1,2 @@
+include hydromath/rust_lib/hydromath.h
+recursive-include hydromath/rust_lib/src *

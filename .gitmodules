@@ -1,3 +1,0 @@
-[submodule "hydromath/rust_lib"]
-	path = hydromath/rust_lib
-	url = https://github.com/amacd31/hydromath_rs.git

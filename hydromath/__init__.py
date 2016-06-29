@@ -32,3 +32,6 @@ def rmse(obs, sim):
 
 def nse(obs, sim):
     return __map_func('nse_c', obs, sim)
+
+def kge(obs, sim):
+    return __map_func('kge_c', obs, sim)

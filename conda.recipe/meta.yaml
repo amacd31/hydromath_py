@@ -1,0 +1,15 @@
+package:
+    name: "hydromath"
+    version: "0.1.0"
+source:
+    git_url: https://github.com/amacd31/hydromath_py.git
+    git_rev: master
+requirements:
+    build:
+        - python x.x
+        - libhydromath   # [unix]
+        - cffi
+    run:
+        - python x.x
+        - libhydromath   # [unix]
+        - cffi

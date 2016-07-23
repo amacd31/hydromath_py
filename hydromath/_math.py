@@ -36,14 +36,18 @@ def nse(obs, sim):
 def kge(obs, sim):
     return __map_func('kge_c', obs, sim)
 
-def heaviside(data, n):
+def heaviside(data):
     """
     """
+    if data.dtype == np.float64:
+        in_data = data
+    else:
+        in_data = data.astype(np.float64)
+
     out_data = np.zeros(len(data))
     __lib.heaviside(
         __ffi.cast('double *', data.ctypes.data),
         __ffi.cast('double *', out_data.ctypes.data),
-        float(n),
         len(data)
     )
 

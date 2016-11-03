@@ -12,5 +12,6 @@ requirements:
         - cffi
     run:
         - python x.x
+        - numpy
         - libhydromath   # [unix]
         - cffi

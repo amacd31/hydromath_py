@@ -18,6 +18,7 @@ env:
 
 install:
   - source ci/travis/install.sh
+  - conda config --add channels amacd31
 
 script:
   - conda build conda.recipe

@@ -4,8 +4,7 @@ package:
 build:
     number: {{ environ.get('GIT_DESCRIBE_NUMBER', 0) }}
 source:
-    git_url: https://github.com/amacd31/hydromath_py.git
-    git_rev: master
+    git_url: ../
 requirements:
     build:
         - python x.x

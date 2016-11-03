@@ -25,6 +25,12 @@ class RMSETestCase(unittest.TestCase):
 
         self.assertEqual(result, 0)
 
+    def test_rmse_perfect_int(self):
+        result = rmse(np.array([1,2,3,4,5]),
+            np.array([1,2,3,4,5]))
+
+        self.assertEqual(result, 0)
+
     def test_rmse_bad(self):
         m = np.mean([1.,2.,3.,4.,5.])
         sim = np.array([m, m, m, m, m])

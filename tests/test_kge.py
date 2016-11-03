@@ -25,6 +25,13 @@ class KGETestCase(unittest.TestCase):
         # Score of 1 for a perfect match.
         self.assertEqual(result, 1)
 
+    def test_kge_perfect_int(self):
+        result = kge(np.array([1,2,3,4,5,6,7]),
+                np.array([1,2,3,4,5,6,7]))
+
+        # Score of 1 for a perfect match.
+        self.assertEqual(result, 1)
+
     def test_kge_climatology(self):
         m = np.mean([1.,2.,3.,4.,5.])
         sim = np.array([m, m, m, m, m])

@@ -1,4 +1,6 @@
 import numpy as np
+import logging
+logger = logging.getLogger(__name__)
 
 from cffi import FFI
 from hydromath import _hydromath_cffi
@@ -18,6 +20,14 @@ def __map_func(c_func_name, obs, sim):
         the correct data type.
     """
     assert len(obs) == len(sim)
+    if obs.dtype != np.float64:
+        logger.warn("Observed series not float64, conversion may result in copy")
+        obs = obs.astype(np.float64, copy = False)
+
+    if sim.dtype != np.float64:
+        logger.warn("Simulated series not float64, conversion may result in copy")
+        sim = sim.astype(np.float64, copy = False)
+
     return getattr(__lib, c_func_name)(
         __ffi.cast('double *', obs.ctypes.data),
         __ffi.cast('double *', sim.ctypes.data),

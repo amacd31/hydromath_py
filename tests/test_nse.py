@@ -24,6 +24,12 @@ class NSETestCase(unittest.TestCase):
 
         self.assertEqual(result, 1)
 
+    def test_nse_perfect_int(self):
+        result = nse(np.array([1,2,3,4,5]),
+                np.array([1,2,3,4,5]))
+
+        self.assertEqual(result, 1)
+
     def test_nse_bad(self):
         m = np.mean([1.,2.,3.,4.,5.])
         sim = np.array([m, m, m, m, m])

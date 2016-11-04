@@ -50,13 +50,14 @@ def heaviside(data):
     """
     """
     if data.dtype == np.float64:
+        logger.warn("Heaviside input series not float64, conversion may result in copy")
         in_data = data
     else:
-        in_data = data.astype(np.float64)
+        in_data = data.astype(np.float64, copy = False)
 
     out_data = np.zeros(len(data))
     __lib.heaviside(
-        __ffi.cast('double *', data.ctypes.data),
+        __ffi.cast('double *', in_data.ctypes.data),
         __ffi.cast('double *', out_data.ctypes.data),
         len(data)
     )

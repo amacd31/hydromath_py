@@ -13,16 +13,17 @@ class HeavisideTestCase(unittest.TestCase):
         pass
 
     def test_heaviside(self):
-        heaviside(self.test_input - 5)
+        result = heaviside(self.test_input - 5)
 
         self.assertEqual(sum(result), 5)
         self.assertEqual(len(result), 13)
 
-    def test_heaviside(self):
-        result = heaviside(np.array([-1,1]))
+    def test_heaviside_simple(self):
+        result = heaviside(np.array([-1,1], dtype=np.float))
 
+        print(result)
         self.assertEqual(result[0], 0)
-        self.assertEqual(result[0], 1)
+        self.assertEqual(result[1], 1)
 
 
 if __name__ == '__main__':

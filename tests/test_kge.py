@@ -16,7 +16,8 @@ class KGETestCase(unittest.TestCase):
     def test_kge(self):
         result = kge(self.test_obs, self.test_sim)
 
-        self.assertAlmostEqual(result, 0.93444, 2)
+        #self.assertEqual(result, 0.93444263181747966307000297092599794268608093261719)
+        self.assertEqual(result, 0.9344426318174797)
 
     def test_kge_perfect(self):
         result = kge(np.array([1.,2.,3.,4.,5.,6.,7.]),
@@ -40,7 +41,7 @@ class KGETestCase(unittest.TestCase):
                 )
 
         # Score of 1 - sqrt(2) when no better than the mean.
-        self.assertAlmostEqual(result, 1 - np.sqrt(2), 5)
+        self.assertEqual(result, 1 - np.sqrt(2), 5)
 
     def test_kge_biased_climatology(self):
         m = np.mean([1.,2.,3.,4.,5.])
@@ -50,7 +51,7 @@ class KGETestCase(unittest.TestCase):
                 )
 
         # Score of 1 - sqrt(3) when no better than the biased mean.
-        self.assertAlmostEqual(result, 1 - np.sqrt(3), 5)
+        self.assertEqual(result, 1 - np.sqrt(3), 5)
 
 
 if __name__ == '__main__':

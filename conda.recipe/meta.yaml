@@ -8,10 +8,10 @@ source:
 requirements:
     build:
         - python x.x
-        - libhydromath   # [unix]
+        - libhydromath >=0.3.1  # [unix]
         - cffi
     run:
         - python x.x
         - numpy
-        - libhydromath   # [unix]
+        - libhydromath >=0.3.1  # [unix]
         - cffi
